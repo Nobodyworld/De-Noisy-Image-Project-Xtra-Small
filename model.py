@@ -180,7 +180,7 @@ def main():
     # Initialize the model, loss, and optimizer
     l1_criterion = nn.L1Loss()  # Add this line to define L1 loss criterion
     mse_criterion = nn.MSELoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.00001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.0001, weight_decay=0.00001)
     # Learning rate scheduler
     weight_decay_scheduler = WeightDecayScheduler(optimizer, step_size=36, gamma=0.9)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=16, gamma=0.9)

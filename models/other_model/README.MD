@@ -8,7 +8,7 @@ A U-Net model, which is a convolutional neural network (CNN) for image segmentat
 - **res_enc1 to res_enc7**: Residual connections in each encoding stage, designed to help mitigate the vanishing gradient problem by allowing gradients to flow through a shortcut connection.
 
 ### Mid-section:
-- **mid_conv1 to mid_conv9**: Represents the bottleneck of the network, consisting of convolutional blocks similar to the encoder. This section processes the most abstracted representation of the input data.
+- **mid_conv1 to mid_conv4**: Represents the bottleneck of the network, consisting of convolutional blocks similar to the encoder. This section processes the most abstracted representation of the input data.
 
 ### Decoder:
 - **dec_conv8 to dec_conv1**: These convolutional blocks progressively recover the spatial dimensions and decrease the number of feature channels, preparing the features for the final segmentation map.

@@ -7,7 +7,7 @@ class UNet(nn.Module):
     def __init__(self):
         super(UNet, self).__init__()
         self.encoder = Encoder()
-        self.mid = Mid()
+
         self.decoder = Decoder()
 
     def forward(self, x):

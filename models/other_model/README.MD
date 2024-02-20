@@ -1,4 +1,3 @@
-best_psnr_model
 
 A U-Net model, which is a convolutional neural network (CNN) for image segmentation tasks. The U-Net architecture consists of a contracting path (encoder), a bottleneck, and an expansive path (decoder), enabling precise localization and use of context in the images. Here's a detailed breakdown:
 

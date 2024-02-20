@@ -24,9 +24,6 @@ class Encoder(nn.Module):
         self.pool6 = nn.MaxPool2d(2, 2)
         self.res_enc6 = nn.Sequential(nn.Conv2d(96, 96, 3, padding=1), nn.ReLU(inplace=True), nn.BatchNorm2d(96), nn.Conv2d(96, 96, 3, padding=1), nn.ReLU(inplace=True), nn.BatchNorm2d(96))
         self.enc_conv7 = nn.Sequential(nn.Conv2d(96, 112, 3, padding=1), nn.BatchNorm2d(112), nn.ReLU(inplace=True), nn.Conv2d(112, 112, 3, padding=1), nn.BatchNorm2d(112), nn.ReLU(inplace=True))
-        self.pool7 = nn.MaxPool2d(2, 2)
-        self.res_enc7 = nn.Sequential(nn.Conv2d(112, 112, 3, padding=1), nn.ReLU(inplace=True), nn.BatchNorm2d(112), nn.Conv2d(112, 112, 3, padding=1), nn.ReLU(inplace=True), nn.BatchNorm2d(112))
-        self.enc_conv8 = nn.Sequential(nn.Conv2d(112, 128, 3, padding=1), nn.BatchNorm2d(128), nn.ReLU(inplace=True), nn.Conv2d(128, 128, 3, padding=1), nn.BatchNorm2d(128), nn.ReLU(inplace=True))
 
     def forward(self, x):
         # Implement the forward pass for the encoder
@@ -49,8 +46,7 @@ class Encoder(nn.Module):
         x12 = self.pool6(x11)
         x12 = x12 + self.res_enc6(x12)
         x13 = self.enc_conv7(x12)
-        x14 = self.pool7(x13)
-        x15 = self.enc_conv8(x14)
+
         
         # Return the outputs of all encoder stages
-        return x1, x3, x5, x7, x9, x11, x13, x15
+        return x1, x3, x5, x7, x9, x11, x13

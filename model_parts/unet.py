@@ -7,17 +7,17 @@ class UNet(nn.Module):
     def __init__(self):
         super(UNet, self).__init__()
         self.encoder = Encoder()
-        self.encoder = Mid()
+        self.mid = Mid()
         self.decoder = Decoder()
 
     def forward(self, x):
         # Use the encoder
-        x1, x3, x5, x7, x9, x11, x13, x15 = self.encoder(x)
+        x1, x3, x5, x7, x9, x11, x13 = self.encoder(x)
 
         # Use the mid
-        x15 = self.mid(x15)
+        x13 = self.mid(x13)
 
         # Use the decoder
-        x31 = self.decoder(x15, x13, x11, x9, x7, x5, x3, x1)
+        x27 = self.decoder(x13, x11, x9, x7, x5, x3, x1)
 
-        return x31
+        return x27
